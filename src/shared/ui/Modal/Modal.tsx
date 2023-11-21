@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
@@ -17,10 +16,13 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
-    const { t } = useTranslation();
     const {
-        className, children, isOpen, onClose,
+        className,
+        children,
+        isOpen,
+        onClose,
     } = props;
+
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
     const { theme } = useTheme();
@@ -35,6 +37,7 @@ export const Modal = (props: ModalProps) => {
         }
     }, [onClose]);
 
+    // Новые ссылки!!!
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             closeHandler();
@@ -59,15 +62,14 @@ export const Modal = (props: ModalProps) => {
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
-        [cls[theme]]: true,
     };
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className])}>
+            <div className={classNames(cls.Modal, mods, [className, theme])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div
-                        className={classNames(cls.content, { [cls.contentOpened]: isOpen })}
+                        className={cls.content}
                         onClick={onContentClick}
                     >
                         {children}
