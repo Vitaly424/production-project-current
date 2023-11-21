@@ -12,5 +12,9 @@
   "О сайте": "About us",
   "toggle": "toggle",
   "Переключить": "Переключить",
-  "Короткий язык": "Ру"
+  "Короткий язык": "Ру",
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
+    " Atque blanditiis cumque debitis illum\n": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis cumque debitis illum\\n"
+  },
+  "Lorem ipsum dolor sit amet": "Lorem ipsum dolor sit amet"
 }

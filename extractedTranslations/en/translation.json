@@ -1,6 +1,13 @@
 {
+  "Lorem ipsum dolor sit amet": "Lorem ipsum dolor sit amet",
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
+    " Atque blanditiis cumque debitis illum\n                    labore nobis porro quas ullam! Alias est facere modi molestias nemo nisi quae quidem saepe unde,\n                    voluptatem": {
+      "": ""
+    }
+  },
   "throw error": "throw error",
   "toggle": "toggle",
+  "Войти": "Войти",
   "Главная": "Главная",
   "Главная страница": "Главная страница",
   "О сайте": "О сайте",
