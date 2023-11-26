@@ -5,17 +5,22 @@
   "Язык": "English",
   "новый перевод": "новый перевод",
   "Страница не найдена": "Page not found",
-  "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
+  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Обновить страницу": "Reload page",
   "throw error": "throw error",
   "Главная": "Main",
   "О сайте": "About us",
-  "toggle": "toggle",
   "Переключить": "Переключить",
-  "Короткий язык": "Ру",
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-    " Atque blanditiis cumque debitis illum\n": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis cumque debitis illum\\n"
-  },
-  "Lorem ipsum dolor sit amet": "Lorem ipsum dolor sit amet",
-  "Вы ввели неверный логин или пароль": "Вы ввели неверный логин или пароль"
+  "Короткий язык": "En",
+  "Войти": "Login",
+  "increment": "increment",
+  "decrement": "decrement",
+  "Введите username": "Enter username",
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Auth form",
+  "Вы ввели неверный логин или пароль": "Uncorrect username or password",
+  "Выйти": "Logout",
+  "Укажите валюту": "Choose currency",
+  "Укажите страну": "Choose country",
+  "Профиль": "Profile"
 }

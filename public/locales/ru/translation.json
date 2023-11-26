@@ -10,12 +10,16 @@
   "throw error": "throw error",
   "Главная": "Главная",
   "О сайте": "О сайте",
-  "toggle": "toggle",
   "Переключить": "Переключить",
-  "Короткий язык": "En",
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-    " Atque blanditiis cumque debitis illum\n": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis cumque debitis illum\\n"
-  },
-  "Lorem ipsum dolor sit amet": "Lorem ipsum dolor sit amet",
-  "Вы ввели неверный логин или пароль": "Вы ввели неверный логин или пароль"
+  "Короткий язык": "Ru",
+  "Войти": "Войти",
+  "increment": "increment",
+  "decrement": "decrement",
+  "Введите username": "Введите username",
+  "Введите пароль": "Введите пароль",
+  "Форма авторизации": "Форма авторизации",
+  "Вы ввели неверный логин или пароль": "Вы ввели неверный логин или пароль",
+  "Выйти": "Выйти",
+  "Укажите валюту": "Укажите валюту",
+  "Укажите страну": "Укажите страну"
 }
