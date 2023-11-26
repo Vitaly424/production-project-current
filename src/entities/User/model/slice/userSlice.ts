@@ -4,6 +4,7 @@ import { UserSchema, User } from '../types/user';
 
 const initialState: UserSchema = {};
 
+// slice
 export const userSlice = createSlice({
     name: 'user',
     initialState,
