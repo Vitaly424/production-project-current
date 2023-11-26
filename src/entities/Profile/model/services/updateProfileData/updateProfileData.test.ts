@@ -1,7 +1,8 @@
+import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ValidateProfileErrors } from 'entities/Profile';
+import { ValidateProfileError } from 'entities/Profile';
 import { updateProfileData } from './updateProfileData';
 
 const data = {
@@ -43,7 +44,7 @@ describe('updateProfileData.test', () => {
 
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toEqual([
-            ValidateProfileErrors.SERVER_ERROR,
+            ValidateProfileError.SERVER_ERROR,
         ]);
     });
 
@@ -57,7 +58,7 @@ describe('updateProfileData.test', () => {
 
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toEqual([
-            ValidateProfileErrors.INCORRECT_USER_DATA,
+            ValidateProfileError.INCORRECT_USER_DATA,
         ]);
     });
 });

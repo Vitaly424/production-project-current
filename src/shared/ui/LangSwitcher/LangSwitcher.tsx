@@ -8,16 +8,11 @@ interface LangSwitcherProps {
     short?: boolean;
 }
 
-export const LangSwitcher = memo((props: LangSwitcherProps) => {
-    const {
-        className,
-        short,
-    } = props;
-
+export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
     const { t, i18n } = useTranslation();
 
     const toggle = async () => {
-        await i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
     };
 
     return (

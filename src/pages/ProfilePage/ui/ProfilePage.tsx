@@ -7,18 +7,16 @@ import {
     getProfileForm,
     getProfileIsLoading,
     getProfileReadonly,
+    getProfileValidateErrors,
     profileActions,
     ProfileCard,
-    profileReducer, ValidateProfileErrors,
+    profileReducer, ValidateProfileError,
 } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import {
-    getProfileValidateErrors,
-} from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -40,10 +38,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const validateErrors = useSelector(getProfileValidateErrors);
 
     const validateErrorTranslates = {
-        [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка'),
-        [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Имя и фамилия обазательны'),
-        [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
-        [ValidateProfileErrors.INCORRECT_AGE]: t('Неккоректный возраст'),
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
     };
 
     useEffect(() => {
@@ -53,15 +52,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({
-            first: value || '',
-        }));
+        dispatch(profileActions.updateProfile({ first: value || '' }));
     }, [dispatch]);
 
     const onChangeLastname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({
-            lastname: value || '',
-        }));
+        dispatch(profileActions.updateProfile({ lastname: value || '' }));
     }, [dispatch]);
 
     const onChangeCity = useCallback((value?: string) => {
@@ -92,20 +87,18 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
-
-                {validateErrors?.length ? validateErrors.map((err) => (
+                {validateErrors?.length && validateErrors.map((err) => (
                     <Text
                         key={err}
                         theme={TextTheme.ERROR}
                         text={validateErrorTranslates[err]}
                     />
-                )) : null}
-
+                ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
-                    readonly={readonly}
                     error={error}
+                    readonly={readonly}
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}

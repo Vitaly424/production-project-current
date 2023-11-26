@@ -1,6 +1,6 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ValidateProfileErrors } from 'entities/Profile';
+import { ValidateProfileError } from 'entities/Profile';
 import { validateProfileData } from './validateProfileData';
 
 const data = {
@@ -24,7 +24,7 @@ describe('validateProfileData.test', () => {
         const result = validateProfileData({ ...data, first: '', lastname: '' });
 
         expect(result).toEqual([
-            ValidateProfileErrors.INCORRECT_USER_DATA,
+            ValidateProfileError.INCORRECT_USER_DATA,
         ]);
     });
 
@@ -32,7 +32,15 @@ describe('validateProfileData.test', () => {
         const result = validateProfileData({ ...data, age: undefined });
 
         expect(result).toEqual([
-            ValidateProfileErrors.INCORRECT_AGE,
+            ValidateProfileError.INCORRECT_AGE,
+        ]);
+    });
+
+    test('incorrect country', async () => {
+        const result = validateProfileData({ ...data, country: undefined });
+
+        expect(result).toEqual([
+            ValidateProfileError.INCORRECT_COUNTRY,
         ]);
     });
 
@@ -40,8 +48,9 @@ describe('validateProfileData.test', () => {
         const result = validateProfileData({});
 
         expect(result).toEqual([
-            ValidateProfileErrors.INCORRECT_USER_DATA,
-            ValidateProfileErrors.INCORRECT_AGE,
+            ValidateProfileError.INCORRECT_USER_DATA,
+            ValidateProfileError.INCORRECT_AGE,
+            ValidateProfileError.INCORRECT_COUNTRY,
         ]);
     });
 });

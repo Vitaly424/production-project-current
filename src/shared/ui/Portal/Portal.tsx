@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
