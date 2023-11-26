@@ -3,7 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
-const path = require('path');
+// @ts-ignore
+import path from 'path';
 
 export default {
     globals: {
